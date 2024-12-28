@@ -8,6 +8,8 @@ import { exchangeRateConfig } from './config';
 import { ExchangeRate } from '../../entities';
 import { ExchangeRateApiService } from './exchange-rate-api.service';
 import { ExchangeRateParserService } from './exchange-rate-parser.service';
+import { ExchangeRateRepository } from './exchange-rate.repository';
+import { ExchangeRateCacheService } from './exchange-rate-cache.service';
 
 @Module({
     imports: [
@@ -21,7 +23,10 @@ import { ExchangeRateParserService } from './exchange-rate-parser.service';
         ExchangeRateService, 
         ExchangeRateResolver, 
         ExchangeRateApiService, 
-        ExchangeRateParserService,],
+        ExchangeRateParserService,
+        ExchangeRateRepository,
+        ExchangeRateCacheService,
+    ],
     exports: [ExchangeRateService],
 })
 export class ExchangeRateModule {}
