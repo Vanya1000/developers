@@ -1,7 +1,7 @@
 import { registerAs } from '@nestjs/config';
 import { z } from 'zod';
 
-export const exchangeRateConfigSchema = z.object({
+const exchangeRateConfigSchema = z.object({
     EXCHANGE_RATE_CACHE_DURATION: z.string().transform((val) => {
         if (!val) {
             throw new Error('EXCHANGE_RATE_CACHE_DURATION is required in production!');
