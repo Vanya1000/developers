@@ -12629,7 +12629,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["supertest", "npm:6.1.3"],\
             ["ts-jest", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:28.0.8"],\
             ["typeorm", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:0.3.10"],\
-            ["ws", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:8.13.0"]\
+            ["ws", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:8.13.0"],\
+            ["zod", "npm:3.24.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -14809,6 +14810,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["zen-observable-ts", "npm:1.2.5"],\
             ["zen-observable", "npm:0.8.15"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["zod", [\
+        ["npm:3.24.1", {\
+          "packageLocation": "./.yarn/cache/zod-npm-3.24.1-62ba4e84b3-dcd5334725.zip/node_modules/zod/",\
+          "packageDependencies": [\
+            ["zod", "npm:3.24.1"]\
           ],\
           "linkType": "HARD"\
         }]\
