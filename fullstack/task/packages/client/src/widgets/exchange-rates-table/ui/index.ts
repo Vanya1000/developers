@@ -1,1 +1,1 @@
-export { ExchangeRates } from './ExchangeRates';
+export { ExchangeRates } from './exchange-rates';
