@@ -46,19 +46,22 @@ US|Dollar|invalid|USD|rate`;
     describe('isValidLine (private)', () => {
         it('should return true for a well-formed line', () => {
             const line = 'USA|Dollar|1|USD|1.2345';
-            const result = (service as any).isValidLine(line);
+            /* eslint-disable-next-line dot-notation */
+            const result = service['isValidLine'](line);
             expect(result).toBe(true);
         });
 
         it('should return false for an empty line', () => {
             const line = '';
-            const result = (service as any).isValidLine(line);
+            /* eslint-disable-next-line dot-notation */
+            const result = service['isValidLine'](line);
             expect(result).toBe(false);
         });
 
         it('should return false if "|" is missing', () => {
             const line = 'JustARegularString';
-            const result = (service as any).isValidLine(line);
+            /* eslint-disable-next-line dot-notation */
+            const result = service['isValidLine'](line);
             expect(result).toBe(false);
         });
     });
@@ -66,7 +69,8 @@ US|Dollar|invalid|USD|rate`;
     describe('parseLine (private)', () => {
         it('should correctly parse a valid line', () => {
             const line = 'USA|Dollar|1|USD|1.2345';
-            const result = (service as any).parseLine(line);
+            /* eslint-disable-next-line dot-notation */
+            const result = service['parseLine'](line);
             expect(result).toEqual({
                 country: 'USA',
                 currency: 'Dollar',
@@ -78,9 +82,8 @@ US|Dollar|invalid|USD|rate`;
 
         it('should throw error if fields are missing', () => {
             const line = 'USA|Dollar|1|USD';
-            expect(() => (service as any).parseLine(line)).toThrowError(
-                `Failed to parse line: ${line}`
-            );
+            /* eslint-disable-next-line dot-notation */
+            expect(() => service['parseLine'](line)).toThrowError(`Failed to parse line: ${line}`);
         });
     });
 });

@@ -4,23 +4,26 @@ const config: CodegenConfig = {
     schema: 'http://127.0.0.1:4001/graphql',
     documents: ['./src/**/*.tsx', './src/**/*.ts'],
     generates: {
-        // Centralized schema types
         'src/shared/api/models.gen.ts': {
             plugins: [
-                'typescript', // Generate types for schema
+                'typescript',
             ],
         },
-        // Operation-specific types and hooks
         'src/': {
-            preset: 'near-operation-file', // Generates files next to operations
+            preset: 'near-operation-file',
             presetConfig: {
-                extension: '.gen.ts', // Use `.gen.ts` for generated files
-                baseTypesPath: 'shared/api/models.gen.ts', // Path to schema types
+                extension: '.gen.ts',
+                baseTypesPath: 'shared/api/models.gen.ts',
             },
             plugins: [
-                'typescript-operations', // Generate types for queries/mutations
-                'typescript-react-apollo', // Generate hooks for React
+                'typescript-operations',
+                'typescript-react-apollo',
             ],
+            config: {
+                prepend: [
+                    "// @ts-nocheck",
+                ],
+            },
         },
     },
 };

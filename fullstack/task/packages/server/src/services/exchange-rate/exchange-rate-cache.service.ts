@@ -1,7 +1,7 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
-import { exchangeRateConfig } from './config';
 import { ExchangeRate } from '../../entities';
+import { exchangeRateConfig } from './config';
 import { ExchangeRateRepository } from './exchange-rate.repository';
 import { IExchangeRateWithTimestamp } from './interfaces/exchange-rate.interface';
 

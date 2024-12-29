@@ -115,19 +115,20 @@ describe('ExchangeRateService', () => {
 
             cacheService.getCachedRates.mockResolvedValue(null);
             apiService.fetchRates.mockResolvedValue(multipleBaseRates);
-            const savedRates = multipleBaseRates.map((rate) => ({
+
+            const savedRates = multipleBaseRates.map((rate, index) => ({
                 ...rate,
-                id: expect.any(String),
-                fetchedAt: expect.any(Date),
-                createdAtUtc: expect.any(Date),
-                version: expect.any(Number),
+                id: String(index + 1),
+                fetchedAt: new Date(),
+                createdAtUtc: new Date(),
+                version: 1,
             }));
             cacheService.saveRates.mockResolvedValue(savedRates);
 
             const result = await service.getExchangeRates();
 
             expect(result).toHaveLength(2);
-            expect(result).toEqual(expect.arrayContaining(savedRates));
+            expect(result).toEqual(savedRates);
             expect(cacheService.saveRates).toHaveBeenCalledWith(
                 expect.arrayContaining([
                     expect.objectContaining({
@@ -143,12 +144,13 @@ describe('ExchangeRateService', () => {
         });
     });
 
-    describe('fetchAndCacheRates', () => {
+    describe('fetchAndCacheRates (private method)', () => {
         it('should add timestamp to rates and save them', async () => {
             apiService.fetchRates.mockResolvedValue([mockBaseRate]);
             cacheService.saveRates.mockResolvedValue([mockExchangeRate]);
 
-            const result = await (service as any).fetchAndCacheRates();
+            /* eslint-disable-next-line dot-notation */
+            const result = await service['fetchAndCacheRates']();
 
             expect(result).toEqual([mockExchangeRate]);
             expect(apiService.fetchRates).toHaveBeenCalledTimes(1);
@@ -166,7 +168,8 @@ describe('ExchangeRateService', () => {
             apiService.fetchRates.mockResolvedValue([]);
             cacheService.saveRates.mockResolvedValue([]);
 
-            const result = await (service as any).fetchAndCacheRates();
+            /* eslint-disable-next-line dot-notation */
+            const result = await service['fetchAndCacheRates']();
 
             expect(result).toEqual([]);
             expect(apiService.fetchRates).toHaveBeenCalledTimes(1);

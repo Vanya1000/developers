@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Types from '../../../shared/api/models.gen';
 
 import { gql } from '@apollo/client';

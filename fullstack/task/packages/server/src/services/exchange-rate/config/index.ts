@@ -1,1 +1,1 @@
-export { exchangeRateConfig } from './exchange-rate.config'
+export { exchangeRateConfig } from './exchange-rate.config';
