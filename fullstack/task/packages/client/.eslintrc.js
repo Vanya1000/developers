@@ -32,7 +32,7 @@ module.exports = {
         '@typescript-eslint/unbound-method': 0,
         'react/no-unused-prop-types': 'off',
     },
-    ignorePatterns: ['**/generated/graphql.tsx'],
+    ignorePatterns: ['**/generated/graphql.tsx', '**/*.gen.ts'],
     overrides: [
         {
             files: ['**/icons/*.tsx'],

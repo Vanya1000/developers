@@ -15,9 +15,17 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
-
-        "baseUrl": "./"
+        "baseUrl": "./src",
+        "paths": {
+            "@app/*": ["app/*"],
+            "@pages/*": ["pages/*"],
+            "@widgets/*": ["widgets/*"],
+            "@features/*": ["features/*"],
+            "@entities/*": ["entities/*"],
+            "@shared/*": ["shared/*"]
+        }
     },
     "include": ["src"],
+    "exclude": ["src/**/*.gen.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
